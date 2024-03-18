@@ -1,3 +1,5 @@
+@import "./scss/variables";
+
 * {
   padding: 0px;
   margin: 0px;
@@ -24,7 +26,7 @@ a:hover {
 
 body {
   margin: 0;
-  font-family: "PT Sans";
+  font-family: $mainFontFamily;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -36,12 +38,18 @@ code {
 
 h1,
 h2 {
-  font-family: "PT Sans";
+  font-family: $mainFontFamily;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Bebas Neue";
+  font-family: $secondFontFamily;
+}
+
+.gradient {
+  border: 5px solid;
+  border-image: linear-gradient(to bottom, $blue 100%, $fuschia-100 100%);
+  margin: 60px;
 }

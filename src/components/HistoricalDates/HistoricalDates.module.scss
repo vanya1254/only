@@ -1,0 +1,12 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.root {
+  @include dFlexACenter();
+
+  position: relative;
+  height: 100vh;
+
+  margin-left: 16.666667vw;
+  margin-right: 8.333333vw;
+}
