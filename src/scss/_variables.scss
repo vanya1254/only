@@ -1,4 +1,5 @@
 $black-blue: #42567a;
+$black-blue-border: rgba(66, 86, 122, 0.1);
 $iris-100: #5d5fef;
 $fuschia-100: #ef5da8;
 $blue: #3877ee;
@@ -9,3 +10,8 @@ $secondFontFamily: "Bebas Neue";
 $gradient: linear-gradient($blue 100%, $fuschia-100 100%);
 
 $index: calc(1vh + 1vw);
+
+// $widthCircle: 36.805556%;
+// $heightCircle: 49.074074%;
+$widthCircle: calc($index * 17.667);
+$heightCircle: calc($index * 17.667);

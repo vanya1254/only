@@ -17,7 +17,40 @@ export type CategoryT = {
 export const HistoricalDates: React.FC = () => {
   return (
     <div className={styles.root}>
-      <SmartCircle categoriesList={[]} />
+      <SmartCircle
+        categoriesList={[
+          {
+            name: "Наука",
+            datesList: [
+              {
+                year: "2015",
+                description:
+                  "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
+              },
+            ],
+          },
+          {
+            name: "Кино",
+            datesList: [
+              {
+                year: "2015",
+                description:
+                  "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
+              },
+            ],
+          },
+          {
+            name: "Литература",
+            datesList: [
+              {
+                year: "2015",
+                description:
+                  "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
+              },
+            ],
+          },
+        ]}
+      />
       <Line
         isVertical={true}
         styles={{
@@ -47,7 +80,7 @@ export const HistoricalDates: React.FC = () => {
         styles={{
           position: "absolute",
           left: "0",
-          top: "50%",
+          top: "44.444444%",
         }}
       />
     </div>

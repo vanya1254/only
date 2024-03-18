@@ -1,0 +1,19 @@
+@import "../../scss/variables";
+
+.root {
+  position: absolute;
+  top: 19.907407%;
+  //   top: calc($index * 17.667);
+  left: calc(50% - ($widthCircle / 2));
+  width: $widthCircle;
+  height: $heightCircle;
+  flex-shrink: 0;
+
+  border: 1px solid $black-blue-border;
+  border-radius: 100%;
+
+  &__dot {
+    &_name {
+    }
+  }
+}
