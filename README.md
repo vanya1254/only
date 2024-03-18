@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+## Для запуска / For Launch
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. npm install
+2. npm start
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Описание
 
-### `npm start`
+Реализовать следующий блок в соответствии с [макетом](https://www.figma.com/file/YXCbNT4Jf9INk62BKTZw1z/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?node-id=0%3A1)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Блок содержит информацию о временных отрезках, в каждом из которых существует несколько событий.
+- При переключении временных отрезков изменяются соответствующие числа и под ними показывается новый слайдер, который содержит подробную информацию по ключевым событиям на активном временном отрезке.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Возможно существование от 2 до 6 временных отрезков. Все интерактивные точки на окружности располагаются на одинаковом расстоянии друг от друга
 
-### `npm test`
+- Весь блок стоит сделать независимым от другой логики на странице.
+  Например, если добавить на страницу ещё один такой же блок, верстка и логика работы этих блоков не будет нарушена
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Демонстрация работы блока](https://disk.yandex.ru/d/um6QeDGxLT8wnQ) - пример с максимальным количеством временных отрезков
 
-### `npm run build`
+_Все существующие в макете линии — это не разметочная сетка, а часть верстки_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Требования к реализации
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Необходимо использовать Typescript
+- Можно использовать React.js или нативный JS на Ваш выбор
+- В случае использования нативного JS, можно воспользоваться любым удобным для - Вас HTML-шаблонизатором или обычным HTML
+- Стилизация с использованием SASS/SCSS (В случае работы с React.js, возможно использование [styled-components](https://styled-components.com/))
+- Сборка проекта с помощью [Webpack](https://webpack.js.org)
+- Для работы со слайдерами необходимо использовать библиотеку [Swiper](https://swiperjs.com/)
+- Для реализации js-анимаций можно использовать библиотеку [gsap](https://greensock.com/gsap/)
 
-### `npm run eject`
+- <u>Не использовать</u> JQuery
+- <u>Не использовать</u> Bootstrap, Tailwind и т.п.
+- <u>Не использовать</u> библиотеки с готовыми UI-компонентами такие, как MaterialUI, AntDesign и т.п.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Выполненное задание необходимо прислать в виде ссылки на git-репозиторий. Актуальная версия кода должна находится в основной ветке.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Файл README.md должен содержать инструкцию по запуску проекта**
