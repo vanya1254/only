@@ -1,0 +1,51 @@
+@keyframes onMouseOverDot {
+  from {
+    width: var(--size-inner-dot);
+    height: var(--size-inner-dot);
+  }
+
+  to {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes onMouseOutDot {
+  from {
+    width: 100%;
+    height: 100%;
+  }
+
+  to {
+    width: var(--size-inner-dot);
+    height: var(--size-inner-dot);
+  }
+}
+
+@keyframes visibilityChangeIn {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes visibilityChangeOut {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

@@ -49,6 +49,36 @@ export const HistoricalDates: React.FC = () => {
               },
             ],
           },
+          {
+            name: "",
+            datesList: [
+              {
+                year: "2015",
+                description:
+                  "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
+              },
+            ],
+          },
+          {
+            name: "Спорт",
+            datesList: [
+              {
+                year: "2015",
+                description:
+                  "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
+              },
+            ],
+          },
+          {
+            name: "Физика",
+            datesList: [
+              {
+                year: "2015",
+                description:
+                  "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
+              },
+            ],
+          },
         ]}
       />
       <Line
@@ -80,7 +110,8 @@ export const HistoricalDates: React.FC = () => {
         styles={{
           position: "absolute",
           left: "0",
-          top: "44.444444%",
+          // top: "44.444444%",
+          top: "calc((1vh + 1vw) * 16.000001)",
         }}
       />
     </div>
