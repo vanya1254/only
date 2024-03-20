@@ -3,5 +3,7 @@
   align-items: center;
 }
 
-@mixin fontDot {
+@mixin activeDot {
+  width: var(--size-inner-dot);
+  height: var(--size-inner-dot);
 }

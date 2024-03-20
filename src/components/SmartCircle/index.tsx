@@ -6,12 +6,17 @@ import initStyles from "./SmartCircle.module.scss";
 
 export type SmartCircleProps = {
   categoriesList: CategoryT[];
+  activeDot: number;
+  setActiveDot: (value: number) => void;
 };
 
 const RADIUS_CIRCLE = "calc((1vh + 1vw) * 17.667 / 2)";
 
-export const SmartCircle: React.FC<SmartCircleProps> = ({ categoriesList }) => {
-  const [activeDot, setActiveDot] = useState(0);
+export const SmartCircle: React.FC<SmartCircleProps> = ({
+  activeDot,
+  setActiveDot,
+  categoriesList,
+}) => {
   const dotTransition = 1;
   // const [isOnMouseOver, setIsOnMouseOver] = useState(false);
 
@@ -56,7 +61,6 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({ categoriesList }) => {
     ) as HTMLDivElement;
 
     dotName.style.animation = `visibilityChangeIn 0.3s linear forwards`;
-    dotName.style.animationDelay = `${dotTransition}s`;
     setActiveDot(curI);
   };
 
