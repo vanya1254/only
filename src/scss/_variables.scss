@@ -14,3 +14,8 @@ $index: calc(1vh + 1vw);
 // $widthCircle: 36.805556%;
 // $heightCircle: 49.074074%;
 $diameterCircle: calc($index * 17.667);
+
+$ml: calc($index * 10.666667);
+$mr: calc($index * 5.333335);
+
+$historicalDatesWidth: calc(100vw - ($ml + $mr));

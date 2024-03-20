@@ -2,11 +2,13 @@
 @import "../../scss/mixins";
 
 .root {
-  @include dFlexACenter();
+  // @include dFlexACenter();
+  display: flex;
+  align-items: end;
 
   position: relative;
   height: 100vh;
 
-  margin-left: 16.666667vw;
-  margin-right: 8.333333vw;
+  margin-left: $ml;
+  margin-right: $mr;
 }
