@@ -1,11 +1,13 @@
 @import "../../scss/variables";
+@import "../../scss/animations";
 
 .root {
   margin: 0 120px;
-  margin-bottom: calc($index * 3.466667) !important;
+  margin-bottom: calc($index * 3.466667);
 
   &__slide {
-    width: fit-content !important;
+    width: fit-content;
+    animation: visbilityChangeIn2 1s linear;
 
     &_title {
       color: $blue;
