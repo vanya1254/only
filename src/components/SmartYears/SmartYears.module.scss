@@ -1,0 +1,34 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.root {
+  --height-years: 160px;
+  --width-years: 973px;
+
+  @include dFlexACenter();
+  justify-content: center;
+
+  position: absolute;
+  top: calc($index * 16 - (var(--height-years) / 2));
+  left: calc(($historicalDatesWidth - var(--width-years)) / 2);
+  z-index: -11;
+
+  width: var(--width-years);
+  gap: calc($index * 2.666667);
+
+  &_start,
+  &_end {
+    text-align: center;
+    font-size: calc($index * 5.128205);
+    font-weight: 700;
+    line-height: var(--height-years); /* 80% */
+    letter-spacing: -4px;
+  }
+
+  &_start {
+    color: $iris-100;
+  }
+  &_end {
+    color: $fuschia-100;
+  }
+}

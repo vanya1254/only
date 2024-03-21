@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Line, SliderSwiper, SmartCircle } from "../";
+import { Line, SliderSwiper, SmartCircle, SmartYears } from "../";
 
 import styles from "./HistoricalDates.module.scss";
 
@@ -163,6 +163,11 @@ export const HistoricalDates: React.FC = () => {
         categoriesList={categories}
         activeDot={curCategory}
         setActiveDot={setCurCategory}
+      />
+      <SmartYears
+        yearsList={categories[curCategory].datesList.map((date) =>
+          Number(date.year)
+        )}
       />
       <SliderSwiper datesList={categories[curCategory].datesList} />
       <Line

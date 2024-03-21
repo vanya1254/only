@@ -18,7 +18,7 @@
 
   &__dot {
     @include dFlexACenter();
-    --size-dot: 32px;
+    --size-dot: 56px;
 
     justify-content: center;
     cursor: pointer;
@@ -30,7 +30,6 @@
     background: transparent;
     top: calc(50% - var(--size-dot) / 2);
     left: calc(50% - var(--size-dot) / 2);
-    // transform: rotate(calc((360deg / categoriesList.length) * i));
 
     &__content {
       --size-inner-dot: 8px;
@@ -52,8 +51,8 @@
 
     &_name {
       position: absolute;
-      left: 3rem;
-      top: 0px;
+      left: calc(var(--size-dot) + 20px);
+      top: 13px;
       font-weight: 700;
     }
 

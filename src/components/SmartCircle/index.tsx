@@ -29,13 +29,13 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
       `.${initStyles.root__dot__content}`
     ) as HTMLDivElement;
 
-    dotContent.style.animation = "onMouseOverDot 0.2s linear forwards";
+    dotContent.style.animation = "onMouseOverDot 0.3s linear forwards";
 
     const dotValue = dotContent.querySelector(
       `.${initStyles.root__dot_value}`
     ) as HTMLDivElement;
 
-    dotValue.style.animation = "visibilityChangeIn 0.2s linear forwards";
+    dotValue.style.animation = "visibilityChangeIn 0.3s linear forwards";
   };
 
   const onMouseOutDot = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -61,6 +61,12 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
     ) as HTMLDivElement;
 
     dotName.style.animation = `visibilityChangeIn 0.3s linear forwards`;
+
+    const dotValue = event.currentTarget?.querySelector(
+      `.${initStyles.root__dot_value}`
+    ) as HTMLDivElement;
+
+    dotValue.style.animation = "visibilityChangeIn 0.3s linear forwards";
     setActiveDot(curI);
   };
 
@@ -80,7 +86,6 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
             )}deg) translate(${RADIUS_CIRCLE}) rotate(-${getAngle(
               activeDot + 1 - i
             )}deg)`,
-            // transform: `rotate(calc((360deg / ${categoriesList.length}) * ${i}))`,
           }}
         >
           <div className={initStyles.root__dot__content}>
