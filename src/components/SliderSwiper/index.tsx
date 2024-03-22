@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
@@ -13,13 +13,13 @@ type SliderSwiperProps = {
 };
 
 export const SliderSwiper: React.FC<SliderSwiperProps> = ({ datesList }) => {
-  const [isFirstSlide, setIsFirstSlide] = useState(false);
+  const [isFirstSlide, setIsFirstSlide] = useState(true);
 
-  const onSlidePrevTransitionEnd = (swiper: any) => {
-    if (swiper.slides[0].classList.contains("swiper-slide-active")) {
-      setIsFirstSlide(true);
-    } else {
+  const onSlideChange = (swiper: any) => {
+    if (swiper.activeIndex > 0) {
       setIsFirstSlide(false);
+    } else {
+      setIsFirstSlide(true);
     }
   };
 
@@ -32,11 +32,11 @@ export const SliderSwiper: React.FC<SliderSwiperProps> = ({ datesList }) => {
       grabCursor={true}
       watchOverflow={false}
       className={`noselect ${styles.root}`}
-      // onSlidePrevTransitionEnd={onSlidePrevTransitionEnd}
       style={{
-        marginLeft: `${isFirstSlide ? "80px" : ""}`,
+        marginLeft: `${isFirstSlide ? "calc((1vh + 1vw) * 2.666667)" : ""}`,
         transition: ".3s linear",
       }}
+      onSlideChange={onSlideChange}
     >
       {datesList
         .sort((a, b) => Number(a.year) - Number(b.year))
@@ -44,7 +44,6 @@ export const SliderSwiper: React.FC<SliderSwiperProps> = ({ datesList }) => {
           <SwiperSlide
             key={datesList[i].description}
             className={styles.root__slide}
-            onChange={onSlidePrevTransitionEnd}
           >
             <h3 className={styles.root__slide_title}>{date.year}</h3>
             <p className={styles.root__slide_text}>{date.description}</p>

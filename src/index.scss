@@ -31,6 +31,7 @@ body {
   font-family: $mainFontFamily;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $bgcolor;
 }
 
 code {
@@ -94,15 +95,15 @@ h6 {
 
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
-  right: 40px;
+  right: calc($index * 1.333333);
   top: auto;
   bottom: calc($index * 3.466667 + 45px);
 }
 
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
+  left: calc($index * 1.333333);
   top: auto;
-  left: 40px;
   bottom: calc($index * 3.466667 + 45px);
 }
 

@@ -7,7 +7,7 @@ import initStyles from "./SmartCircle.module.scss";
 export type SmartCircleProps = {
   categoriesList: CategoryT[];
   activeDot: number;
-  setActiveDot: (value: number) => void;
+  setActiveDot: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const RADIUS_CIRCLE = "calc((1vh + 1vw) * 17.667 / 2)";
@@ -23,6 +23,22 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
 
   const onClickDot = (curI: number) => {
     setActiveDot(curI);
+  };
+
+  const onClickPrev = () => {
+    if (activeDot === 0) {
+      setActiveDot(categoriesList.length - 1);
+    } else {
+      setActiveDot((prev) => prev - 1);
+    }
+  };
+
+  const onClickNext = () => {
+    if (activeDot === categoriesList.length - 1) {
+      setActiveDot(0);
+    } else {
+      setActiveDot((prev) => prev + 1);
+    }
   };
 
   return (
@@ -58,7 +74,10 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
           categoriesList.length
         }`}</p>
         <div className={initStyles.root__nav__btns}>
-          <button className={initStyles.root__nav__btns_prev}>
+          <button
+            onClick={onClickPrev}
+            className={initStyles.root__nav__btns_prev}
+          >
             <svg
               width="10"
               height="14"
@@ -73,7 +92,10 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
               />
             </svg>
           </button>
-          <button className={initStyles.root__nav__btns_next}>
+          <button
+            onClick={onClickNext}
+            className={initStyles.root__nav__btns_next}
+          >
             <svg
               width="10"
               height="14"

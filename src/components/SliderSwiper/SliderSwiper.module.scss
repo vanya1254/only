@@ -2,8 +2,9 @@
 @import "../../scss/animations";
 
 .root {
-  margin: 0 120px;
+  margin: 0 calc($index * 4);
   margin-bottom: calc($index * 3.466667);
+  // margin-left: 80px;
 
   &__slide {
     width: fit-content;
