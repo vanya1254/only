@@ -1,5 +1,6 @@
 $bgcolor: #f4f5f9;
 $black-blue: #42567a;
+$black-blue50: #42567a50;
 $black-blue-border: rgba(66, 86, 122, 0.1);
 $iris-100: #5d5fef;
 $fuschia-100: #ef5da8;
@@ -8,15 +9,15 @@ $blue: #3877ee;
 $mainFontFamily: "PT Sans";
 $secondFontFamily: "Bebas Neue";
 
-$gradient: linear-gradient($blue 100%, $fuschia-100 100%);
+$gradient: linear-gradient($blue, $fuschia-100);
 
 $index: calc(1vh + 1vw);
 
-// $widthCircle: 36.805556%;
-// $heightCircle: 49.074074%;
 $diameterCircle: calc($index * 17.667);
 
 $ml: calc($index * 10.666667);
 $mr: calc($index * 5.333335);
+
+$mMobile: 20px;
 
 $historicalDatesWidth: calc(100vw - ($ml + $mr));

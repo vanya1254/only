@@ -2,7 +2,6 @@
 @import "../../scss/mixins";
 
 .root {
-  // @include dFlexACenter();
   display: flex;
   align-items: end;
 
@@ -11,4 +10,37 @@
 
   margin-left: $ml;
   margin-right: $mr;
+
+  &__title {
+    position: absolute;
+    top: calc($index * 5.666667);
+    padding-left: calc($index * 2.6);
+
+    border-left: 5px solid;
+    border-image-source: $gradient;
+    border-image-slice: 1;
+
+    &_content {
+      color: $black-blue;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 120%; /* 67.2px */
+
+      width: min-content;
+
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      border: none;
+      top: calc($index * 6.644144);
+      padding-left: 0;
+    }
+  }
+  @media (max-width: 768px) {
+    margin: 0 $mMobile;
+    overflow: hidden;
+  }
 }

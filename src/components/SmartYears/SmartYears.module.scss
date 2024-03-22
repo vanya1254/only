@@ -23,12 +23,32 @@
     font-weight: 700;
     line-height: var(--height-years); /* 80% */
     letter-spacing: -4px;
+
+    @media (max-width: 768px) {
+      font-size: 56px;
+      line-height: normal;
+      letter-spacing: -1.12px;
+    }
   }
 
   &_start {
     color: $iris-100;
+
+    @media (max-width: 768px) {
+      color: $blue;
+    }
   }
   &_end {
     color: $fuschia-100;
+  }
+
+  @media (max-width: 768px) {
+    --height-years: 73px;
+    --width-years: 273px;
+
+    top: calc($index * 18.355856);
+    left: calc($index * 2.252252 - 20px);
+    gap: 0;
+    justify-content: space-between;
   }
 }

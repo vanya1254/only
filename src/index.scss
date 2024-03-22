@@ -107,6 +107,13 @@ h6 {
   bottom: calc($index * 3.466667 + 45px);
 }
 
+.swiper-slide-next {
+  @media (max-width: 768px) {
+    transition: 0.3s linear;
+    opacity: 0.4;
+  }
+}
+
 .activeDot {
   div:first-child {
     width: 100%;

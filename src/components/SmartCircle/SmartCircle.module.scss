@@ -125,9 +125,26 @@
         width: var(--size-btn);
         height: var(--size-btn);
         border-radius: 100%;
-        border: 1px solid $black-blue;
+        border: 1px solid $black-blue50;
 
         cursor: pointer;
+        transition: 0.3s linear;
+
+        @media (max-width: 768px) {
+          --size-btn: 25px;
+
+          svg {
+            height: 6.25px;
+            path {
+              stroke-width: 4px;
+            }
+          }
+        }
+      }
+
+      button:disabled {
+        cursor: auto;
+        opacity: 0.5;
       }
 
       &_prev {
@@ -135,6 +152,22 @@
 
       &_next {
       }
+
+      @media (max-width: 768px) {
+        gap: 8.33px;
+      }
     }
+
+    @media (max-width: 768px) {
+      left: 0;
+      bottom: 13.33px;
+      gap: 10.67px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
   }
 }

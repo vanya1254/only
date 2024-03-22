@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Line, SliderSwiper, SmartCircle, SmartYears } from "../";
 
@@ -156,9 +156,21 @@ export const HistoricalDates: React.FC = () => {
     },
   ];
   const [curCategory, setCurCategory] = useState(0);
+  const [matches, setMatches] = useState(
+    window.matchMedia("(max-width: 768px)").matches
+  );
+
+  useEffect(() => {
+    window.matchMedia("(max-width: 768px)").addEventListener("change", (e) => {
+      setMatches(e.matches);
+    });
+  }, []);
 
   return (
     <div className={styles.root}>
+      <article className={styles.root__title}>
+        <h2 className={styles.root__title_content}>Исторические даты</h2>
+      </article>
       <SmartCircle
         categoriesList={categories}
         activeDot={curCategory}
@@ -169,38 +181,45 @@ export const HistoricalDates: React.FC = () => {
           Number(date.year)
         )}
       />
-      <SliderSwiper datesList={categories[curCategory].datesList} />
-      <Line
-        isVertical={true}
-        styles={{
-          position: "absolute",
-          left: "0",
-          top: "0",
-        }}
-      />
-      <Line
-        isVertical={true}
-        styles={{
-          position: "absolute",
-          right: "0",
-          top: "0",
-        }}
-      />
-      <Line
-        isVertical={true}
-        styles={{
-          position: "absolute",
-          right: "50%",
-          top: "0",
-        }}
-      />
+      <SliderSwiper datesList={categories[curCategory].datesList} media={matches} />
+      {!matches && (
+        <>
+          <Line
+            isVertical={true}
+            styles={{
+              position: "absolute",
+              left: "0",
+              top: "0",
+            }}
+          />
+          <Line
+            isVertical={true}
+            styles={{
+              position: "absolute",
+              right: "0",
+              top: "0",
+            }}
+          />
+          <Line
+            isVertical={true}
+            styles={{
+              position: "absolute",
+              right: "50%",
+              top: "0",
+            }}
+          />
+        </>
+      )}
       <Line
         isVertical={false}
         styles={{
           position: "absolute",
           left: "0",
-          // top: "44.444444%",
-          top: "calc((1vh + 1vw) * 16.000001)",
+          top: `${
+            !matches
+              ? "calc((1vh + 1vw) * 16.000001)"
+              : "calc((1vw + 1vh) * 32.995495)"
+          }`,
         }}
       />
     </div>

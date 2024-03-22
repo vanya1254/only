@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 
 import { DateT } from "../";
 
 import "swiper/scss";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import styles from "./SliderSwiper.module.scss";
 
 type SliderSwiperProps = {
   datesList: DateT[];
+  media: boolean;
 };
 
-export const SliderSwiper: React.FC<SliderSwiperProps> = ({ datesList }) => {
+export const SliderSwiper: React.FC<SliderSwiperProps> = ({
+  datesList,
+  media,
+}) => {
   const [isFirstSlide, setIsFirstSlide] = useState(true);
 
   const onSlideChange = (swiper: any) => {
@@ -25,15 +30,18 @@ export const SliderSwiper: React.FC<SliderSwiperProps> = ({ datesList }) => {
 
   return (
     <Swiper
-      modules={[Navigation]}
-      navigation={true}
+      modules={[Navigation, Pagination]}
+      navigation={!media}
+      // pagination={media}
       spaceBetween={80}
       slidesPerView={"auto"}
       grabCursor={true}
       watchOverflow={false}
       className={`noselect ${styles.root}`}
       style={{
-        marginLeft: `${isFirstSlide ? "calc((1vh + 1vw) * 2.666667)" : ""}`,
+        marginLeft: `${
+          !media && isFirstSlide ? "calc((1vh + 1vw) * 2.666667)" : ""
+        }`,
         transition: ".3s linear",
       }}
       onSlideChange={onSlideChange}

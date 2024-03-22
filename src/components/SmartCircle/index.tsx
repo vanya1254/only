@@ -25,6 +25,9 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
     setActiveDot(curI);
   };
 
+  /**
+   * Проверки на случай loop логики
+   */
   const onClickPrev = () => {
     if (activeDot === 0) {
       setActiveDot(categoriesList.length - 1);
@@ -77,6 +80,7 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
           <button
             onClick={onClickPrev}
             className={initStyles.root__nav__btns_prev}
+            disabled={activeDot === 0 ? true : false}
           >
             <svg
               width="10"
@@ -95,6 +99,7 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
           <button
             onClick={onClickNext}
             className={initStyles.root__nav__btns_next}
+            disabled={activeDot === categoriesList.length - 1 ? true : false}
           >
             <svg
               width="10"
