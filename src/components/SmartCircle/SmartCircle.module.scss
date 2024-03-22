@@ -42,6 +42,8 @@
       font-size: 20px;
       line-height: 30px; /* 150% */
       color: $black-blue;
+
+      transition: 0.3s linear;
     }
 
     &_name,
@@ -54,6 +56,11 @@
       left: calc(var(--size-dot) + 20px);
       top: 13px;
       font-weight: 700;
+
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s linear;
+      transition-delay: 1s;
     }
 
     &_value {
@@ -70,9 +77,64 @@
       height: 100%;
 
       font-weight: 400;
+
+      transition: 0.3s linear;
+    }
+
+    &:hover {
+      div:first-child {
+        width: 100%;
+        height: 100%;
+
+        div:first-child {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
     }
   }
 
-  &_active {
+  &__nav {
+    position: absolute;
+    bottom: calc($index * 9.833333);
+    left: calc($index * 2.666667);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &_info {
+      color: $black-blue;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    &__btns {
+      @include dFlexACenter();
+
+      gap: 20px;
+
+      button {
+        --size-btn: 50px;
+
+        @include dFlexACenter();
+        justify-content: center;
+
+        background-color: white;
+        width: var(--size-btn);
+        height: var(--size-btn);
+        border-radius: 100%;
+        border: 1px solid $black-blue;
+
+        cursor: pointer;
+      }
+
+      &_prev {
+      }
+
+      &_next {
+      }
+    }
   }
 }

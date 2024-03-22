@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { CategoryT } from "../";
 
@@ -17,85 +17,81 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
   setActiveDot,
   categoriesList,
 }) => {
-  const dotTransition = 1;
-  // const [isOnMouseOver, setIsOnMouseOver] = useState(false);
-
   const getAngle = (i: number) => {
     return 240 + (360 / categoriesList.length) * i;
   };
 
-  const onMouseOverDot = (event: React.MouseEvent<HTMLDivElement>) => {
-    const dotContent = event.currentTarget.querySelector(
-      `.${initStyles.root__dot__content}`
-    ) as HTMLDivElement;
-
-    dotContent.style.animation = "onMouseOverDot 0.3s linear forwards";
-
-    const dotValue = dotContent.querySelector(
-      `.${initStyles.root__dot_value}`
-    ) as HTMLDivElement;
-
-    dotValue.style.animation = "visibilityChangeIn 0.3s linear forwards";
-  };
-
-  const onMouseOutDot = (event: React.MouseEvent<HTMLDivElement>) => {
-    const dotContent = event.currentTarget.querySelector(
-      `.${initStyles.root__dot__content}`
-    ) as HTMLDivElement;
-
-    dotContent.style.animation = "onMouseOutDot 0.2s linear forwards";
-
-    const dotValue = dotContent.querySelector(
-      `.${initStyles.root__dot_value}`
-    ) as HTMLDivElement;
-
-    dotValue.style.animation = "visibilityChangeOut 0.2s linear forwards";
-  };
-
-  const onClickDot = (
-    event: React.MouseEvent<HTMLDivElement>,
-    curI: number
-  ) => {
-    const dotName = event.currentTarget?.querySelector(
-      `.${initStyles.root__dot_name}`
-    ) as HTMLDivElement;
-
-    dotName.style.animation = `visibilityChangeIn 0.3s linear forwards`;
-
-    const dotValue = event.currentTarget?.querySelector(
-      `.${initStyles.root__dot_value}`
-    ) as HTMLDivElement;
-
-    dotValue.style.animation = "visibilityChangeIn 0.3s linear forwards";
+  const onClickDot = (curI: number) => {
     setActiveDot(curI);
   };
 
   return (
-    <div className={initStyles.root}>
-      {categoriesList.map((category, i) => (
-        <div
-          key={i}
-          onMouseOver={onMouseOverDot}
-          onMouseOut={onMouseOutDot}
-          onClick={(e) => onClickDot(e, i)}
-          className={initStyles.root__dot}
-          style={{
-            transition: `${dotTransition}s linear`,
-            transform: `rotate(${getAngle(
-              activeDot + 1 - i
-            )}deg) translate(${RADIUS_CIRCLE}) rotate(-${getAngle(
-              activeDot + 1 - i
-            )}deg)`,
-          }}
-        >
-          <div className={initStyles.root__dot__content}>
-            <div className={initStyles.root__dot_value}>{i + 1}</div>
-            <div className={initStyles.root__dot_name}>
-              {activeDot === i ? category.name : ""}
+    <>
+      <div className={initStyles.root}>
+        {categoriesList.map((category, i) => (
+          <div
+            key={i}
+            onClick={() => onClickDot(i)}
+            className={`${activeDot === i ? "activeDot" : ""} ${
+              initStyles.root__dot
+            }`}
+            style={{
+              transition: `1s linear`,
+              transform: `rotate(${getAngle(
+                activeDot + 1 - i
+              )}deg) translate(${RADIUS_CIRCLE}) rotate(-${getAngle(
+                activeDot + 1 - i
+              )}deg)`,
+            }}
+          >
+            <div className={initStyles.root__dot__content}>
+              <div className={initStyles.root__dot_value}>{i + 1}</div>
+              <div className={initStyles.root__dot_name}>
+                {activeDot === i ? category.name : ""}
+              </div>
             </div>
           </div>
+        ))}
+      </div>
+      <div className={initStyles.root__nav}>
+        <p className={initStyles.root__nav_info}>{`0${activeDot + 1}/0${
+          categoriesList.length
+        }`}</p>
+        <div className={initStyles.root__nav__btns}>
+          <button className={initStyles.root__nav__btns_prev}>
+            <svg
+              width="10"
+              height="14"
+              viewBox="0 0 10 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.49988 0.750001L2.24988 7L8.49988 13.25"
+                stroke="#42567A"
+                strokeWidth="2"
+              />
+            </svg>
+          </button>
+          <button className={initStyles.root__nav__btns_next}>
+            <svg
+              width="10"
+              height="14"
+              viewBox="0 0 10 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.49988 0.750001L2.24988 7L8.49988 13.25"
+                stroke="#42567A"
+                strokeWidth="2"
+                transform="rotate(180)"
+                transform-origin="5px 7px"
+              />
+            </svg>
+          </button>
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 };
