@@ -3,7 +3,7 @@
 
 .root {
   --height-years: 160px;
-  --width-years: 973px;
+  --width-years: 100%;
 
   @include dFlexACenter();
   justify-content: center;
