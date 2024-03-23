@@ -4,7 +4,6 @@
 
 .root {
   position: absolute;
-  // top: 19.907407%;
   top: calc($index * 7.1666667);
   left: calc(50% - ($diameterCircle / 2));
   width: $diameterCircle;
@@ -129,6 +128,10 @@
 
         cursor: pointer;
         transition: 0.3s linear;
+
+        &:hover {
+          background-color: white;
+        }
 
         @media (max-width: 768px) {
           --size-btn: 25px;
