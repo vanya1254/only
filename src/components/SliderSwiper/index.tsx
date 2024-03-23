@@ -19,17 +19,23 @@ export const SliderSwiper: React.FC<SliderSwiperProps> = ({
   media,
 }) => {
   const [isFirstSlide, setIsFirstSlide] = useState(true);
+  const [key, setKey] = useState(datesList[0].description);
 
   const onSlideChange = (swiper: any) => {
-    if (swiper.activeIndex > 0) {
-      setIsFirstSlide(false);
-    } else {
+    if (swiper.activeIndex === 0) {
       setIsFirstSlide(true);
+    } else {
+      setIsFirstSlide(false);
     }
   };
 
+  useEffect(() => {
+    setKey(datesList[0].description);
+  }, [datesList]);
+
   return (
     <Swiper
+      key={key}
       modules={[Navigation, Pagination]}
       navigation={!media}
       pagination={media && { clickable: media }}
