@@ -114,6 +114,37 @@ h6 {
   }
 }
 
+.swiper-pagination {
+  @include dFlexACenter();
+
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background-color: $black-blue;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $black-blue;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 32px;
+}
+
 .activeDot {
   div:first-child {
     width: 100%;

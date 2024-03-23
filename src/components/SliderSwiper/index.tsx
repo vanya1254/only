@@ -32,7 +32,7 @@ export const SliderSwiper: React.FC<SliderSwiperProps> = ({
     <Swiper
       modules={[Navigation, Pagination]}
       navigation={!media}
-      // pagination={media}
+      pagination={media && { clickable: media }}
       spaceBetween={80}
       slidesPerView={"auto"}
       grabCursor={true}
