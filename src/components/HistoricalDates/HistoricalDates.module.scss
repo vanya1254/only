@@ -12,9 +12,12 @@
   margin-right: $mr;
 
   &__title {
+    @include dFlexACenter();
+
     position: absolute;
     top: calc($index * 5.666667);
-    padding-left: calc($index * 2.6);
+    padding-left: calc($index * 2.6 + 6px);
+    height: 120px;
 
     border-left: 5px solid;
     border-image-source: $gradient;
@@ -37,6 +40,7 @@
       border: none;
       top: calc($index * 6.644144);
       padding-left: 0;
+      height: auto;
     }
   }
   @media (max-width: 768px) {

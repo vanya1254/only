@@ -2,8 +2,3 @@
   display: flex;
   align-items: center;
 }
-
-@mixin activeDot {
-  width: var(--size-inner-dot);
-  height: var(--size-inner-dot);
-}
