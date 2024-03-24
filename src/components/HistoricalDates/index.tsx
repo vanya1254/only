@@ -175,6 +175,7 @@ export const HistoricalDates: React.FC = () => {
         categoriesList={categories}
         activeDot={curCategory}
         setActiveDot={setCurCategory}
+        media={matches}
       />
       <SmartYears
         yearsList={categories[curCategory].datesList.map((date) =>

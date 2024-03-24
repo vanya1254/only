@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import {
+  Navigation,
+  // Pagination
+} from "swiper/modules";
 
 import { DateT } from "../";
 
 import "swiper/scss";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+// import "swiper/css/pagination";
 import styles from "./SliderSwiper.module.scss";
 
 type SliderSwiperProps = {
@@ -36,11 +39,14 @@ export const SliderSwiper: React.FC<SliderSwiperProps> = ({
   return (
     <Swiper
       key={key}
-      modules={[Navigation, Pagination]}
+      modules={[
+        Navigation,
+        // Pagination
+      ]}
       navigation={!media}
-      pagination={media && { clickable: media }}
-      spaceBetween={80}
-      slidesPerView={"auto"}
+      // pagination={media && { clickable: media }}
+      spaceBetween={!media ? 80 : 25}
+      slidesPerView={!media ? "auto" : 1.5}
       grabCursor={true}
       watchOverflow={false}
       className={`noselect ${styles.root}`}

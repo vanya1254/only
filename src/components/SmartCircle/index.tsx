@@ -8,6 +8,7 @@ export type SmartCircleProps = {
   categoriesList: CategoryT[];
   activeDot: number;
   setActiveDot: React.Dispatch<React.SetStateAction<number>>;
+  media: boolean;
 };
 
 const RADIUS_CIRCLE = "calc((1vh + 1vw) * 17.667 / 2)";
@@ -16,6 +17,7 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
   activeDot,
   setActiveDot,
   categoriesList,
+  media,
 }) => {
   const getAngle = (i: number) => {
     return 240 + (360 / categoriesList.length) * i;
@@ -51,17 +53,21 @@ export const SmartCircle: React.FC<SmartCircleProps> = ({
           <div
             key={i}
             onClick={() => onClickDot(i)}
-            className={`${activeDot === i ? "activeDot" : ""} ${
+            className={`${activeDot === i ? `${initStyles.activeDot}` : ""} ${
               initStyles.root__dot
             }`}
-            style={{
-              transition: `1s linear`,
-              transform: `rotate(${getAngle(
-                activeDot + 1 - i
-              )}deg) translate(${RADIUS_CIRCLE}) rotate(-${getAngle(
-                activeDot + 1 - i
-              )}deg)`,
-            }}
+            style={
+              !media
+                ? {
+                    transition: `1s linear`,
+                    transform: `rotate(${getAngle(
+                      activeDot + 1 - i
+                    )}deg) translate(${RADIUS_CIRCLE}) rotate(-${getAngle(
+                      activeDot + 1 - i
+                    )}deg)`,
+                  }
+                : undefined
+            }
           >
             <div className={initStyles.root__dot__content}>
               <div className={initStyles.root__dot_value}>{i + 1}</div>
